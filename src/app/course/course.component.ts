@@ -1,4 +1,4 @@
-import { core } from '@angular/compiler';
+import { CourseListService } from './../Services/course-list.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseComponent  {
 
-  constructor() { }
-   courses =["Angular", "React" ,"javascript", "python", "java core", "java advance"];
+  constructor(private service:CourseListService) { 
+    this.courses= this.service.getcourselist();
+  }
+  courses;
 
 }
